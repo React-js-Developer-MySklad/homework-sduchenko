@@ -1,9 +1,10 @@
 # Homework repository
 
 ## Install dependencies
-```npm install```
+```bun install```
+
 ## Development Mode 
-```npm serve```
+```bun run serve```
 
 ## Build production 
-```npm build```
+```bun run build```
