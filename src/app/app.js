@@ -23,25 +23,24 @@ function refresh() {
 
 function addNew() {
     contragentRepositort.create()
-        .then(item => modal.edit(item))
+        .then(editContragent);
+}
+
+function editContragent(item) {
+    modal.open(item)
         .then(edited => {
             return contragentRepositort.save(edited)
         }).then(() => refresh());
 }
 
-table.onDblClick((item) => {
-    modal.edit(item)
-        .then(edited => {
-            return contragentRepositort.save(edited)
-        }).then(() => refresh());
-});
+table.onEdit(editContragent);
 
 addButton.onclick = (e) => {
     e.preventDefault();
     addNew();
 };
 
-table.mount(main);
-modal.mount(main);
+main.appendChild(table.asDOMElement())
+main.appendChild(modal.asDOMElement())
 
 refresh();

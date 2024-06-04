@@ -14,9 +14,8 @@ class Table {
         this.#root = elementFromHtml(html);
     }
 
-    mount(parent) {
-        console.log("mount");
-        parent.appendChild(this.#root);
+    asDOMElement() {
+        return this.#root;
     }
 
     setData(data) {
@@ -49,16 +48,16 @@ class Table {
         for (let i = 0; i < rows.length; i++) {
             const row = rows[i];
             const rowData = this.#data[i]
-            const fun = (rowData) => {
-                console.log("Clicked", rowData);
-                this.#handler(rowData);
-            };
-
-            row.ondblclick = fun.bind(this, rowData)
+            row.ondblclick = this.#onRowClick.bind(this, rowData)
         }
     }
 
-    onDblClick(handler) {
+    #onRowClick(rowData) {
+        console.log("Clicked", rowData);
+        this.#handler(rowData);
+    }
+
+    onEdit(handler) {
         this.#handler = handler;
     }
 

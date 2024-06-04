@@ -16,6 +16,11 @@ class Modal {
         this.#root = elementFromHtml(html);
         this.#modal = new FlowbiteModal(this.#root)
         this.#fields = this.#initFields()
+        this.#bindHandlers()
+    }
+
+    asDOMElement() {
+        return this.#root;
     }
 
     #initFields() {
@@ -33,18 +38,12 @@ class Modal {
         return fields;
     }
 
-    mount(parent) {
-        console.log("mount");
-        parent.appendChild(this.#root);
-        this.#bindHandlers()
-    }
-
     #bindHandlers() {
         const form = this.#root.querySelector("form");
         form.onsubmit = this.#onSubmit.bind(this);
     }
 
-    edit(data) {
+    open(data) {
         this.#data = {...data};
         return new Promise((resolve) => {
             this.#resolve = resolve;
