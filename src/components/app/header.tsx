@@ -2,7 +2,12 @@ import React from "react";
 import Logo from "../../assets/logo.svg";
 import IconAdd from "../../assets/icon_add.svg";
 
-export const Header = () => {
+type HeaderProps = {
+    onAddClick?: () => void
+}
+
+export const Header = React.memo(({onAddClick}: HeaderProps) => {
+    console.log("update header")
     return (
         <header className="h-14">
             <div className="flex items-center h-14">
@@ -16,7 +21,7 @@ export const Header = () => {
                 <div>
                     <button type="button"
                             role="add-button"
-                            id="add-button"
+                            onClick={onAddClick}
                             className="px-3 py-2 text-xs font-medium text-center inline-flex items-center text-white
             bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600
             dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -27,4 +32,4 @@ export const Header = () => {
             </div>
         </header>
     )
-}
+})
