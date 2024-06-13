@@ -11,7 +11,7 @@ module.exports = merge(config, {
         rules: [
             {
                 test: /\.css$/,
-                use: [ MiniCssExtractPlugin.loader, 'css-loader' ],  // порядок имеет значение!
+                use: [ MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],  // порядок имеет значение!
                 exclude: /\.module\.css$/,
             },
             {
