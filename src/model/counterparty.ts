@@ -1,6 +1,6 @@
 
 type Counterparty = {
-    id: number,
+    id?: string,
     name: string,
     inn: string,
     kpp: string,
