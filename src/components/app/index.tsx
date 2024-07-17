@@ -1,6 +1,6 @@
 import React, {useCallback, useContext, useEffect, useState} from "react";
-import {Header} from "./header";
-import {Footer} from "./footer";
+import {Header} from "./header/header";
+import {Footer} from "./footer/footer";
 import {Main} from "./main";
 import {CounterpartyTable} from "../counterparty/table";
 import {Loader} from "../loader";
