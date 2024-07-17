@@ -25,7 +25,7 @@ export const CounterpartyModal = React.memo(({item, show, onClose, onSave}: Moda
         let  modal = new FlowbiteModal(modalElementRef.current)
         modal.updateOnHide(onClose)
         modalRef.current = modal;
-    }, [modalElementRef])
+    }, [])
 
     useEffect(() => {
         formElementRef.current.onsubmit = event => {

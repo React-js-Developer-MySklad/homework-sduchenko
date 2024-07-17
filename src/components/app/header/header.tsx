@@ -1,12 +1,12 @@
 import React from "react";
-import Logo from "../../assets/logo.svg";
-import IconAdd from "../../assets/icon_add.svg";
+import Logo from "../../../assets/logo.svg";
+import IconAdd from "../../../assets/icon_add.svg";
 
 type HeaderProps = {
     onAddClick?: () => void
 }
 
-export const Header = React.memo(({onAddClick}: HeaderProps) => {
+export const Header = ({onAddClick}: HeaderProps) => {
     console.log("update header")
     return (
         <header className="h-14">
@@ -32,4 +32,4 @@ export const Header = React.memo(({onAddClick}: HeaderProps) => {
             </div>
         </header>
     )
-})
+}
