@@ -40,3 +40,5 @@ export class CounterpartyRepository {
         return null;
     }
 }
+
+export const instance = new CounterpartyRepository();

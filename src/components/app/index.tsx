@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import {Header} from "./header/header";
 import {Footer} from "./footer/footer";
 import {Main} from "./main";
@@ -6,14 +6,14 @@ import {CounterpartyTable} from "../counterparty/table";
 import {Loader} from "../loader";
 import {CounterpartyModal} from "../counterparty/modal";
 import {Counterparty} from "../../model/counterparty";
-import {CounterpartyRepositoryContext} from "../../core/contexts";
+import {useCounterparty} from "../../hooks/useCounterparty";
 
 export const App = () => {
     let [data, setData] = useState([]);
     let [loading, setLoading] = useState(false)
     let [showModal, setShowModal] = useState(false)
     let [modalItem, setModalItem] = useState<Counterparty>(null)
-    const counterpartyRepository = useContext(CounterpartyRepositoryContext);
+    const counterpartyRepository = useCounterparty();
 
     const fetchData = () => {
         setLoading(true)
