@@ -3,16 +3,17 @@ import {Header} from "./header/header";
 import {Footer} from "./footer/footer";
 import {Main} from "./main";
 import {CounterpartyTable} from "../counterparty/table";
-import {counterpartyRepository} from "../../services/counterparty-repository";
 import {Loader} from "../loader";
 import {CounterpartyModal} from "../counterparty/modal";
 import {Counterparty} from "../../model/counterparty";
+import {useCounterparty} from "../../hooks/useCounterparty";
 
 export const App = () => {
     let [data, setData] = useState([]);
     let [loading, setLoading] = useState(false)
     let [showModal, setShowModal] = useState(false)
     let [modalItem, setModalItem] = useState<Counterparty>(null)
+    const counterpartyRepository = useCounterparty();
 
     const fetchData = () => {
         setLoading(true)
@@ -46,7 +47,7 @@ export const App = () => {
             setShowModal(false);
             setModalItem(null);
         }
-    , [])
+        , [])
 
     const onRowClick = useCallback((row) => {
         editItem(row)
